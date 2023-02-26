@@ -1,6 +1,8 @@
 # EKG-TFG
 A github repository for an electrocardiogram based in Arduino.
 
+The main branch presents the most inforation regarding the project.
+
 Each branch of the project represents a different device where we upload a different code.
 The goal of the project is to represent a EKG chart in smart phone device, using a NODEMCU 1.0, OLIMEXINO AND EKG SHIELD from OLIMEX :
 
