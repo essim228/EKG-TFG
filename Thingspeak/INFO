@@ -1,0 +1,5 @@
+Not efficient due the lack of speed doing publish request to the server. 
+The Mosquitto broker idea was discarded because maximum frequency of the MQTT 5.0 protocol is 25hz, we need about 65 Hz (256Hz optimal) to post all the signals necesary to create a faithful electrocardiogram. 
+So the BLE option will the one we will implement.
+
+In the posted image we can see the period of posting images is 6s (way too slow).
