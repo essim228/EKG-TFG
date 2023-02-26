@@ -2,6 +2,9 @@
 A github repository for an electrocardiogram based in Arduino.
 
 Each branch of the project represents a different device where we upload a different code.
-The goal of the project is to represent a EKG chart in smart phone device, using a SHIELD EKG FROM OLIMEX:
-![alt text](https://asset.conrad.com/media10/isa/160267/c1/-/en/1195101_BB_00_FB/image.jpg?x=1000&y=1000&ex=1000&ey=1000&align=center)
+The goal of the project is to represent a EKG chart in smart phone device, using a NODEMCU 1.0, OLIMEXINO AND EKG SHIELD from OLIMEX :
 
+<img src="https://user-images.githubusercontent.com/106173055/221409371-6660340b-2d4c-47f5-ad16-3645e1ec97a0.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/106173055/221409380-3dac1a86-6fff-4129-a5ce-cbe01d0636a1.png" width="27%"></img> <img src="https://user-images.githubusercontent.com/106173055/221409417-152cad90-0679-406b-af4e-85f1801f9fc7.png" width="24%"></img> 
+
+
+The strcutre of the projects conections is:
