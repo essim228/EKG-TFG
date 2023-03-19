@@ -1,11 +1,15 @@
 #include <SoftwareSerial.h>
 //Parameters
-SoftwareSerial BTserial(10, 11); // RX, TX for the HC-06
-#define ecgPin A0 // Analog input pin for EKG signal
-int ecgValue = 0; // Variable to store the EKG reading
-unsigned long ecgTime = 0; // Time of the last EKG peak
-unsigned long ecgInterval = 0; // Time between successive EKG peaks
-int bpm = 0; // Beats per minute
+SoftwareSerial BTSerial(2, 1); // RX, TX for the HC-06
+const int ecgPin = A0; // Analog input pin for EKG signal
+int ecgValue; // Variable to store the EKG reading
+int ecgInterval;
+int ecgTime;
+unsigned long timestamp1 = 0; // Time of the last EKG peak
+unsigned long timestamp2 = 0; // Time between successive EKG peaks
+unsigned long currentMillis; // Time between successive EKG peaks
+short value;
+short bpm = 0; // Beats per minute
 int wait_EKG = 0; // Timestamp to send EKG signals values
 int wait_BPM= 0;// Timestamp to send BPM values
 
@@ -15,7 +19,7 @@ int wait_BPM= 0;// Timestamp to send BPM values
 void setup() {
   //Init Serial USB
   Serial.begin(9600);
-  BTserial.begin(9600);
+  BTSerial.begin(9600);
   Serial.println(F("Initialize System"));
   //Init AnalogSmooth
   pinMode(ecgPin, INPUT);
@@ -23,29 +27,12 @@ void setup() {
 
 void loop() {
   
-  
-unsigned long currentMillis = millis();
-
-  // Check if it's time to send the first signal
-  if (currentMillis - waitEKG >= 40) { // send every 40ms
-    // Send the ekg signal to the HC-06
-¡    BTSerial.println(analogRead(ecgPin));
-
-    // Update the timestamp for the first signal
-    timestamp1 = currentMillis;
-  }
-
-  // Check if it's time to send the second signal
-  if (currentMillis - timestamp2 >= 10000) { // send every 10 seconds
-    // Send the bpm signal to the HC-06
-    BTSerial.println(beats());
-
-    // Update the timestamp for the second signal
-    timestamp2 = currentMillis;
-  }
-
+value = analogRead(ecgPin);
+//BTSerial.print(value);
+Serial.print("a");
+Serial.println(value);
   // Delay for a short period of time to avoid overwhelming the HC-06
-  delay(10);
+delay(4);
 }
 
 
@@ -61,3 +48,4 @@ int beats() {
     }
   }
 }
+
